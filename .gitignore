@@ -3,7 +3,7 @@
 #############
 target/
 *.jar
-
+*.iml
 /out/
 /JavaRushPlugin.properties
 /Инструкция.png
