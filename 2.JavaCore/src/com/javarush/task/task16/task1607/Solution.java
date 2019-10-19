@@ -24,7 +24,7 @@ public class Solution {
             } else {
                 System.out.println("Waiting for " + horses.get(i).getName());
                 horses.get(i).join();
-                finishedCount++;
+                //finishedCount++;
             }
         }
         return finishedCount;
