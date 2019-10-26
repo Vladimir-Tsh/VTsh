@@ -52,6 +52,7 @@ public class Solution {
 
                     System.out.println("Объект " + sharedResource + ", нить " + threadName);
                     Thread.sleep(1000);
+                    isCurrentThreadInterrupted = Thread.currentThread().isInterrupted();
                 }
             } catch (InterruptedException e) {
             }
