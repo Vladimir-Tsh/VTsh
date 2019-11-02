@@ -60,8 +60,10 @@ public class Solution {
                 }
             }
             if (!OnlineGame.isWinnerFound) {
-                OnlineGame.isWinnerFound = true;
-                System.out.println(getName() + ":победитель!");
+                if (!isInterrupted()) {
+                    OnlineGame.isWinnerFound = true;
+                    System.out.println(getName() + ":победитель!");
+                }
             } else {
                 System.out.println(getName() + ":проиграл");
             }
