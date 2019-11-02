@@ -9,8 +9,9 @@ public class Solution {
 
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < COUNT; i++) {
-            new SleepingThread();
+            SleepingThread sleepingThread = new SleepingThread();
             //напишите тут ваш код
+            sleepingThread.join();
         }
     }
 
@@ -31,7 +32,8 @@ public class Solution {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
+                    System.out.println("Нить прервана");
                 }
             }
         }
