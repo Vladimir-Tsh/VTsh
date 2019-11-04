@@ -17,6 +17,15 @@ public class Solution {
         }
     }
 
+    public static class SortThread extends Thread {
+        @Override
+        public void run() {
+            synchronized (testArray) {
+                sort(testArray);
+            }
+        }
+    }
+
     public static void main(String[] args) throws InterruptedException {
         StringBuffer expectedResult = new StringBuffer();
         for (int i = 1000 - 1; i >= 0; i--) {
