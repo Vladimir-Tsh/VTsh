@@ -18,8 +18,9 @@ public class Solution {
 
     public static class TestedThread extends Thread {
         public TestedThread(Thread.UncaughtExceptionHandler handler) {
-            setUncaughtExceptionHandler(handler);
-            start();
+            setDefaultUncaughtExceptionHandler(handler);
+            //setUncaughtExceptionHandler(handler);
+            //start();
         }
 
         public void run() {
