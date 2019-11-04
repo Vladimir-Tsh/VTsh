@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
-    public static List<Thread> threads = new ArrayList<>(5);
+    private static List<Thread> threads = new ArrayList<>(5);
 
     public static volatile BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -99,6 +99,6 @@ public class Solution {
         threads.add(new Thread5());
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
     }
 }
