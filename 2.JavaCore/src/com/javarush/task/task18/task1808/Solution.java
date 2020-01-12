@@ -13,7 +13,7 @@ public class Solution {
         String fileName2 = reader.readLine();
         String fileName3 = reader.readLine();
         FileInputStream inputStream = new FileInputStream(fileName1);
-        if (inputStream.available() > 0) {
+        //if (inputStream.available() > 0) {
             FileOutputStream outputStream1 = new FileOutputStream(fileName2);
             FileOutputStream outputStream2 = new FileOutputStream(fileName3);
 
@@ -30,7 +30,7 @@ public class Solution {
 
             outputStream1.close();
             outputStream2.close();
-        }
+        //}
 
         inputStream.close();
     }
