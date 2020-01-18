@@ -26,8 +26,6 @@ public class Solution {
             fileOutputStream.write(i);
         }
 
-        i = 0;
-
         while((i = bufferedInputStream2.read())!= -1){
             fileOutputStream.write(i);
         }
