@@ -24,11 +24,13 @@ public class Solution {
                     try {
                         fileReader.close();
                     } catch (IOException ex) {
+                        System.out.println("fileReader.close exception:");
                         ex.printStackTrace();
                     }
                 }
                 readNextFileName = false;
             } catch (IOException e) {
+                System.out.println("readerFileName.readLine exception:");
                 e.printStackTrace();
             }
         }
