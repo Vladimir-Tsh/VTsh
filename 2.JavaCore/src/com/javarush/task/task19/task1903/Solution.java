@@ -29,22 +29,38 @@ public class Solution {
 
         @Override
         public String getCompanyName() {
-            return null;
+            return data.getCompany();
         }
 
         @Override
         public String getCountryName() {
-            return null;
+            return countries.get(data.getCountryCode());
         }
 
         @Override
         public String getName() {
-            return null;
+            return data.getContactLastName() + ", " + data.getContactFirstName();
         }
 
         @Override
         public String getPhoneNumber() {
-            return null;
+            StringBuilder rezPhoneNumber = new StringBuilder("+");
+            StringBuilder phoneNumber = new StringBuilder();
+            for (int i = 0; i < 10 - String.valueOf(data.getPhoneNumber()).length(); i++) {
+                phoneNumber.append('0');
+            }
+            phoneNumber.append(data.getPhoneNumber());
+            String strPhoneNumber = phoneNumber.toString();
+            rezPhoneNumber.append(data.getCountryPhoneCode());
+            rezPhoneNumber.append('(');
+            rezPhoneNumber.append(strPhoneNumber.substring(0,3));
+            rezPhoneNumber.append(')');
+            rezPhoneNumber.append(strPhoneNumber.substring(3, 6));
+            rezPhoneNumber.append('-');
+            rezPhoneNumber.append(strPhoneNumber.substring(6,8));
+            rezPhoneNumber.append('-');
+            rezPhoneNumber.append(strPhoneNumber.substring(8));
+            return rezPhoneNumber.toString();
         }
     }
 
