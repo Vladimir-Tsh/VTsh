@@ -10,11 +10,42 @@ import java.util.Map;
 public class Solution {
     public static Map<String, String> countries = new HashMap<String, String>();
 
+    static {
+        countries.put("UA", "Ukraine");
+        countries.put("RU", "Russia");
+        countries.put("CA", "Canada");
+    }
+
     public static void main(String[] args) {
 
     }
 
-    public static class IncomeDataAdapter {
+    public static class IncomeDataAdapter implements Customer, Contact {
+        private IncomeData data;
+
+        public IncomeDataAdapter(IncomeData data) {
+            this.data = data;
+        }
+
+        @Override
+        public String getCompanyName() {
+            return null;
+        }
+
+        @Override
+        public String getCountryName() {
+            return null;
+        }
+
+        @Override
+        public String getName() {
+            return null;
+        }
+
+        @Override
+        public String getPhoneNumber() {
+            return null;
+        }
     }
 
 
