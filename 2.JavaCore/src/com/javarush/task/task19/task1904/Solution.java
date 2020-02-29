@@ -37,8 +37,8 @@ public class Solution {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            Person person = new Person(lineSplit.get(1), lineSplit.get(2), lineSplit.get(0), date);
-            return person;
+//            Person person = new Person(lineSplit.get(1), lineSplit.get(2), lineSplit.get(0), date);
+            return new Person(lineSplit.get(1), lineSplit.get(2), lineSplit.get(0), date);
         }
 
         @Override
