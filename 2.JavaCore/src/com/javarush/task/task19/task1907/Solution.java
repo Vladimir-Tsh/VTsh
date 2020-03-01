@@ -18,7 +18,7 @@ public class Solution {
         String fileName = reader.readLine();
         reader.close();
         FileReader fileReader = new FileReader(fileName);
-        StringBuilder line = new StringBuilder("");
+        StringBuilder line = new StringBuilder();
         while (fileReader.ready()) {
             line.append((char) fileReader.read());
         }
