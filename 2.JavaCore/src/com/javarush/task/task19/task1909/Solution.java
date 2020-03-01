@@ -19,10 +19,10 @@ public class Solution {
         Pattern pattern = Pattern.compile("\\.");
         while (fileReader.ready()) {
             String line =  fileReader.readLine();
-            System.out.println(line);
+//            System.out.println(line);
             Matcher matcher = pattern.matcher(line);
-            System.out.println(matcher.replaceAll("!"));
-//            fileWriter.write(matcher.replaceAll("!"));
+//            System.out.println(matcher.replaceAll("!"));
+            fileWriter.write(matcher.replaceAll("!") + "\n");
         }
         fileReader.close();
         fileWriter.close();
