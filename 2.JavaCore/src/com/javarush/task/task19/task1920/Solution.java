@@ -39,6 +39,7 @@ public class Solution {
         }
 
         Double max = 0.0;
+
         for (Double z: zarplata.values()) {
             if (max < z) max = z;
         }
