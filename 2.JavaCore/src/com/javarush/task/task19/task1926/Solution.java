@@ -21,7 +21,7 @@ public class Solution {
 
     public static void main(String[] args) {
         BufferedReader reader;
-        String file = "";
+        String file;
         try {
             reader = new BufferedReader(new InputStreamReader(System.in));
             file = reader.readLine();
