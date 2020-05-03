@@ -12,11 +12,14 @@ import java.io.InputStreamReader;
 public class Solution {
 
     public static void strToConsole(String s) {
-        char[] chars = s.toCharArray();
-        for (int i = chars.length - 1; i >= 0; i--) {
-            System.out.print(chars[i]);
-        }
-        System.out.print('\n');
+//        char[] chars = s.toCharArray();
+//        for (int i = chars.length - 1; i >= 0; i--) {
+//            System.out.print(chars[i]);
+//        }
+//        System.out.print('\n');
+        StringBuilder stringBuilder = new StringBuilder(s);
+        stringBuilder.reverse();
+        System.out.println(stringBuilder.toString());
     }
 
     public static void main(String[] args) {
