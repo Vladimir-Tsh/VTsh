@@ -33,7 +33,8 @@ public class Solution {
         System.setOut(consoleStream);
 
         //выводим ее в консоль
-        Pattern pattern = Pattern.compile("\n");
+        Pattern pattern = Pattern.compile(System.getProperty("line.separator"));
+//        Pattern pattern = Pattern.compile("\n");
         ArrayList<String> lines = new ArrayList<>(Arrays.asList(pattern.split(result)));
 
         for (int i = 0; i < lines.size(); i++) {
