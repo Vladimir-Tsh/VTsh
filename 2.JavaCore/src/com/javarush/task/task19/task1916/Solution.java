@@ -21,6 +21,51 @@ public class Solution {
             reader.close();
             ArrayList<String> arrayListFromFile1 = fromFileToArrayList(file1);
             ArrayList<String> arrayListFromFile2 = fromFileToArrayList(file2);
+
+            while (arrayListFromFile1.size() > 0 | arrayListFromFile2.size() > 0) {
+                if (arrayListFromFile1.size() == 1 & arrayListFromFile2.size() == 0) {
+                    lines.add(new LineItem(Type.REMOVED, arrayListFromFile1.get(0)));
+                    arrayListFromFile1.remove(0);
+                }
+                if (arrayListFromFile1.size() == 0 & arrayListFromFile2.size() == 1) {
+                    lines.add(new LineItem(Type.ADDED, arrayListFromFile2.get(0)));
+                    arrayListFromFile2.remove(0);
+                }
+                if (arrayListFromFile1.size() == 1 & arrayListFromFile2.size() == 1) {
+                    lines.add(new LineItem(Type.SAME, arrayListFromFile1.get(0)));
+                    arrayListFromFile1.remove(0);
+                    arrayListFromFile2.remove(0);
+                }
+                if (arrayListFromFile1.size() >= 1 & arrayListFromFile2.size() >= 2) {
+                    if (arrayListFromFile1.get(0).equals(arrayListFromFile2.get(0))) {
+                        lines.add(new LineItem(Type.SAME, arrayListFromFile1.get(0)));
+                        arrayListFromFile1.remove(0);
+                        arrayListFromFile2.remove(0);
+                    } else if (arrayListFromFile1.get(0).equals(arrayListFromFile2.get(1))) {
+                        lines.add(new LineItem(Type.ADDED, arrayListFromFile2.get(0)));
+                        arrayListFromFile2.remove(0);
+                        lines.add(new LineItem(Type.SAME, arrayListFromFile1.get(0)));
+                        arrayListFromFile1.remove(0);
+                        arrayListFromFile2.remove(0);
+                    }
+                }
+                if (arrayListFromFile1.size() >= 2 & arrayListFromFile2.size() >= 1) {
+                    if (arrayListFromFile1.get(0).equals(arrayListFromFile2.get(0))) {
+                        lines.add(new LineItem(Type.SAME, arrayListFromFile1.get(0)));
+                        arrayListFromFile1.remove(0);
+                        arrayListFromFile2.remove(0);
+                    } else if (arrayListFromFile1.get(1).equals(arrayListFromFile2.get(0))) {
+                        lines.add(new LineItem(Type.REMOVED, arrayListFromFile1.get(0)));
+                        arrayListFromFile1.remove(0);
+                        lines.add(new LineItem(Type.SAME, arrayListFromFile1.get(0)));
+                        arrayListFromFile1.remove(0);
+                        arrayListFromFile2.remove(0);
+                    }
+                }
+            }
+
+            lines.forEach(lineItem -> System.out.println(lineItem.type + " " + lineItem.line));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
