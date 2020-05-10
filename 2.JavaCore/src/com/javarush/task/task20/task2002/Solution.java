@@ -24,7 +24,6 @@ public class Solution {
             JavaRush javaRush = new JavaRush();
             //initialize users field for the javaRush object here - инициализируйте поле users для объекта javaRush тут
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
             User user = new User();
             user.setBirthDate(new Date());
             user.setCountry(User.Country.RUSSIA);
@@ -85,7 +84,6 @@ public class Solution {
         public void save(OutputStream outputStream) throws Exception {
             //implement this method - реализуйте этот метод
             String lineSeparator = System.getProperty("line.separator");
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
             outputStream.write((users.size() + lineSeparator).getBytes());
             for (User user : users) {
                 outputStream.write((user.getFirstName() + lineSeparator +
@@ -104,9 +102,8 @@ public class Solution {
                 s.append((char) i);
             Pattern pattern = Pattern.compile(System.getProperty("line.separator"));
             ArrayList<String> lines = new ArrayList<>(Arrays.asList(pattern.split(s)));
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
             if (Integer.parseInt(lines.get(0)) > 0) {
-                for (i = 1; i < 5 * Integer.parseInt(lines.get(0)); i += 5) {
+                for (i = 1; i < 5 * Integer.parseInt(lines.get(0)) + 1; i += 5) {
                     User user = new User();
                     user.setFirstName(lines.get(i));
                     user.setLastName(lines.get(i + 1));
