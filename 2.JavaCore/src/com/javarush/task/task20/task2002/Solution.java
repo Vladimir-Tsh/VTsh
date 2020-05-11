@@ -1,7 +1,6 @@
 package com.javarush.task.task20.task2002;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
