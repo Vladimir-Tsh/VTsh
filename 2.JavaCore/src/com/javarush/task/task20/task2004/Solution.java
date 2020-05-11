@@ -1,6 +1,9 @@
 package com.javarush.task.task20.task2004;
 
-/* 
+import java.io.*;
+import java.util.Properties;
+
+/*
 Читаем и пишем в файл статики
 */
 public class Solution {
@@ -27,6 +30,9 @@ public class Solution {
             loadedObject.load(inputStream);
             //here check that the classWithStatic object is equal to the loadedObject object - проверьте тут, что classWithStatic и loadedObject равны
 
+            if (classWithStatic.equals(loadedObject)) System.out.println("OK!");
+            else System.out.println("Bad...");
+
             outputStream.close();
             inputStream.close();
 
@@ -46,10 +52,20 @@ public class Solution {
 
         public void save(OutputStream outputStream) throws Exception {
             //implement this method - реализуйте этот метод
+            Properties prop = new Properties();
+            prop.setProperty("str", staticString);
+            prop.setProperty("i", String.valueOf(i));
+            prop.setProperty("j", String.valueOf(j));
+            prop.store(outputStream, "ClassWithStatic");
         }
 
         public void load(InputStream inputStream) throws Exception {
             //implement this method - реализуйте этот метод
+            Properties properties = new Properties();
+            properties.load(inputStream);
+            staticString = properties.getProperty("str");
+            i = Integer.parseInt(properties.getProperty("i"));
+            j = Integer.parseInt(properties.getProperty("j"));
         }
 
         @Override
