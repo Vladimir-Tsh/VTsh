@@ -3,12 +3,13 @@ package com.javarush.task.task20.task2015;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /* 
 Переопределение сериализации
 */
-public class Solution implements {
-    private Thread runner;
+public class Solution implements Serializable, Runnable {
+    transient private Thread runner;
     private int speed;
 
     public Solution(int speed) {
@@ -34,6 +35,8 @@ public class Solution implements {
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
+        Thread newThread = new Thread(this);
+        newThread.start();
     }
 
     public static void main(String[] args) {
