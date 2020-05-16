@@ -14,8 +14,8 @@ public class Solution implements Serializable {
 
         String file = "D:\\Temp\\task2014\\object.dat";
 
-        FileOutputStream fileOutputStream = null;
-        FileInputStream fileInputStream = null;
+        FileOutputStream fileOutputStream;
+        FileInputStream fileInputStream;
         Solution savedObject = null;
         Solution loadedObject = null;
         try {
