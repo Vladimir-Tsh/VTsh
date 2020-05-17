@@ -1,14 +1,17 @@
 package com.javarush.task.task20.task2018;
 
-import java.io.Serializable;
+import java.io.*;
 
 /* 
 Найти ошибки
 */
-public class Solution {
+public class Solution implements Serializable{
     public static class A {
 
         protected String nameA = "A";
+
+        public A() {
+        }
 
         public A(String nameA) {
             this.nameA += nameA;
@@ -23,6 +26,16 @@ public class Solution {
             super(nameA);
             this.nameA += nameA;
             this.nameB = nameB;
+        }
+
+        private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
+            objectOutputStream.defaultWriteObject();
+            objectOutputStream.writeObject(nameA);
+        }
+
+        private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+            objectInputStream.defaultReadObject();
+            nameA = (String) objectInputStream.readObject();
         }
     }
 
