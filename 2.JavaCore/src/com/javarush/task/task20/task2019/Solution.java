@@ -1,5 +1,6 @@
 package com.javarush.task.task20.task2019;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +38,7 @@ public class Solution implements Serializable {
         return m;
     }
 
-    public void Solution() {
+    public Solution() {
         m.put("Mickey", "Mouse");
         m.put("Mickey", "Mantle");
     }
