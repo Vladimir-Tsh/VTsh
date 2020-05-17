@@ -18,8 +18,9 @@ public class Solution {
             e.printStackTrace();
         }
         finally {
-            return Objects.isNull(a) ? null : a;
+            a = Objects.isNull(a) ? null : a;
         }
+        return a;
     }
 
     public class A implements Serializable {
